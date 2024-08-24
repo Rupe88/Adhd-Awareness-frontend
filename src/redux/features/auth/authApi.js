@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://adhd-awareness-backend.vercel.app/api/auth",
+    baseUrl: "https://adhd-awareness-backend.onrender.com/api/auth",
     credentials: "include",
   }),
   endpoints: (builder) => ({
