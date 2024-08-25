@@ -23,7 +23,7 @@ const SingleBlog = () => {
                 {blog.comments && <CommentCard comments={blog.comments} />}
               </div>
             </div>
-            <div className="bg-white dark:bg-gray-900 dark:text-gray-100 lg-w-1/3 w-full p-3">
+            <div className="bg-white dark:bg-gray-900 dark:text-gray-100 lg-w-1/3 w-full p-3 mt-8">
               <RelatedBlog />
             </div>
           </div>

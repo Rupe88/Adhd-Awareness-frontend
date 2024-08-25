@@ -77,7 +77,7 @@ const AddPost = () => {
   };
 
   return (
-    <div className="bg-white md:p-8 p-2">
+    <div className="bg-gray-200 dark:text-white dark:bg-gray-800 md:p-8 p-2">
       <h2 className="text-2xl font-semibold">Create A New Blog Post</h2>
       <form onSubmit={handleSubmit} className="space-y-5 pt-8">
         {/* */}
@@ -88,7 +88,7 @@ const AddPost = () => {
             onChange={(e) => setTitle(e.target.value)}
             type="text"
             placeholder="Ex: Marina del Rey"
-            className="w-full inline-block bg-gray-200 px-5 py-3 focus:outline-none"
+            className="w-full inline-block  bg-gray-300 dark:text-white dark:bg-gray-500 px-5 py-3 focus:outline-none"
           />
         </div>
         {/*blog details */}
@@ -111,7 +111,7 @@ const AddPost = () => {
                 onChange={(e) => setCoverImg(e.target.value)}
                 type="text"
                 placeholder="https://unsplash.com/image1.jpg.."
-                className="w-full inline-block bg-gray-200 px-5 py-3 focus:outline-none"
+                className="w-full inline-block bg-gray-300 dark:text-white dark:bg-gray-500 px-5 py-3 focus:outline-none"
               />
             </div>
 
@@ -123,7 +123,7 @@ const AddPost = () => {
                 onChange={(e) => setCategory(e.target.value)}
                 type="text"
                 placeholder="/health/mental-health/adhd.."
-                className="w-full inline-block bg-gray-200 px-5 py-3 focus:outline-none"
+                className="w-full inline-block bg-gray-300 dark:text-white dark:bg-gray-500 px-5 py-3 focus:outline-none"
               />
             </div>
 
@@ -137,7 +137,7 @@ const AddPost = () => {
                 onChange={(e) => setMetaDescription(e.target.value)}
                 type="text"
                 placeholder="Write Your Blog Meta Description"
-                className="w-full inline-block bg-gray-200 px-5 py-3 focus:outline-none"
+                className="w-full inline-block bg-gray-300 dark:text-white dark:bg-gray-500 px-5 py-3 focus:outline-none"
               />
             </div>
 
@@ -148,7 +148,7 @@ const AddPost = () => {
                 value={rating}
                 onChange={(e) => setRating(e.target.value)}
                 type="number"
-                className="w-full inline-block bg-gray-200 px-5 py-3 focus:outline-none"
+                className="w-full  inline-block bg-gray-300 dark:text-white dark:bg-gray-500 px-5 py-3 focus:outline-none"
               />
             </div>
 
@@ -160,7 +160,7 @@ const AddPost = () => {
                 value={user.username}
                 type="text"
                 placeholder={`{user.username} (not editable)`}
-                className="w-full inline-block bg-gray-200 px-5 py-3 focus:outline-none"
+                className="w-full inline-block bg-gray-300 dark:text-white dark:bg-gray-500 px-5 py-3 focus:outline-none"
               />
             </div>
           </div>

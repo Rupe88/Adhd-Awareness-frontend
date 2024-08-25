@@ -45,7 +45,7 @@ const SingleBlogCard = ({ blog }) => {
 
   return (
     <>
-      <div className="bg-white dark:bg-gray-800 p-8">
+      <div className="bg-white dark:bg-gray-800 p-8 mt-8">
         <div>
           <h1 className="md:text-4xl text-3xl font-medium mb-4 text-gray-900 dark:text-white">{title}</h1>
           <p className="mb-6 text-gray-600 dark:text-gray-300">

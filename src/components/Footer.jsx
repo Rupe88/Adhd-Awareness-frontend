@@ -44,7 +44,7 @@ const Footer = () => {
                 type="email" 
                 
                 placeholder="Your email" 
-                className="flex-grow px-4 py-2 rounded-l-md focus:outline-none focus:ring-2 focus:ring-pink-600 dark:bg-gray-700 dark:text-white"
+                className="flex-grow px-2 py-2 rounded-l-md focus:outline-none focus:ring-2 focus:ring-pink-600 dark:bg-gray-700 dark:text-white"
               />
               <button 
                 type="submit" 
