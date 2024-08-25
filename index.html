@@ -10,6 +10,17 @@
   <body>
     <div id="root"></div>
     <!-- for chat bot -->
+
+
+    <script>
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
+
+    <!-- adhd chatbot -->
     <script>
       window.embeddedChatbotConfig = {
       chatbotId: "Qnv6bRn0cpQ5oTsLGFnJH",
@@ -22,15 +33,6 @@
       domain="www.chatbase.co"
       defer>
       </script>
-      <!-- h -->
-
-    <script>
-      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark')
-      } else {
-        document.documentElement.classList.remove('dark')
-      }
-    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
