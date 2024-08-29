@@ -21,6 +21,16 @@ const UpdatePost = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (blog.post) {
+      setTitle(blog.post.title || "");
+      setCoverImg(blog.post.coverImg || "");
+      setMetaDescription(blog.post.description || "");
+      setCategory(blog.post.category || "");
+      setRating(blog.post.rating || 0);
+    }
+  }, [blog]);
+
+  useEffect(() => {
     let editor;
     if (blog.post) {
       editor = new EditorJS({
@@ -56,13 +66,13 @@ const UpdatePost = () => {
     try {
       const content = await editorRef.current.save();
       const updatedPost = {
-        title: title || blog.post.title,
-        coverImg: coverImg || blog.post.coverImg,
+        title,
+        coverImg,
         category,
         content,
-        description: metaDescription || blog.post.description,
+        description: metaDescription,
         author: user?._id,
-        rating: rating || blog.post.rating,
+        rating: parseFloat(rating),
       };
       console.log(updatedPost);
       const response = await updateBlog({ id, ...updatedPost }).unwrap();
@@ -72,88 +82,97 @@ const UpdatePost = () => {
       navigate("/dashboard");
     } catch (error) {
       console.log(error);
-      setMessage("Failed to submit post, please try again!");
+      setMessage("Failed to update post, please try again!");
     }
   };
 
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+
   return (
-    <div className="bg-white md:p-8 p-2">
-      <h2 className="text-2xl font-semibold">Edit or Update Post</h2>
+    <div className="bg-white dark:bg-gray-800 md:p-8 p-2">
+      <h2 className="text-2xl font-semibold dark:text-white">Edit or Update Post</h2>
       <form onSubmit={handleSubmit} className="space-y-5 pt-8">
-        {/* Blog Title */}
         <div>
-          <label className="text-semibold text-xl">Blog Title:</label>
+          <label className="text-semibold text-xl dark:text-white">Blog Title:</label>
           <input
-            defaultValue={blog?.post?.title}
+            value={title}
             onChange={(e) => setTitle(e.target.value)}
             type="text"
             placeholder="Ex: Marina del Rey"
-            className="w-full inline-block bg-gray-200 px-5 py-3 focus:outline-none"
+            className="w-full inline-block bg-gray-200 dark:bg-gray-700 dark:text-white px-5 py-3 focus:outline-none"
           />
         </div>
-        {/* Blog Details */}
         <div className="flex flex-col md:flex-row justify-between items-start gap-4">
           <div className="md:w-2/3 w-full">
-            <p className="font-semibold text-xl mb-5">Content Section</p>
-            <p className="text-xs italic">Write Your Post Below Here..</p>
-            <div id="editorjs"></div>
+            <p className="font-semibold text-xl mb-5 dark:text-white">Content Section</p>
+            <p className="text-xs italic dark:text-gray-300">Write Your Post Below Here..</p>
+            <div id="editorjs" className="bg-white dark:bg-gray-700 min-h-[300px] border border-gray-300 dark:border-gray-600"></div>
           </div>
-          <div className="md:w-1/3 w-full border p-5 space-y-5">
-            <p className="text-xl font-semibold">Choose Blog Format</p>
+          <div className="md:w-1/3 w-full border p-5 space-y-5 dark:border-gray-600">
+            <p className="text-xl font-semibold dark:text-white">Choose Blog Format</p>
             <div>
-              <label className="text-semibold">Blog Cover:</label>
+              <label className="text-semibold dark:text-white">Blog Cover:</label>
               <input
-                defaultValue={blog?.post?.coverImg}
+                value={coverImg}
                 onChange={(e) => setCoverImg(e.target.value)}
                 type="text"
                 placeholder="https://unsplash.com/image1.jpg.."
-                className="w-full inline-block bg-gray-200 px-5 py-3 focus:outline-none"
+                className="w-full inline-block bg-gray-200 dark:bg-gray-700 dark:text-white px-5 py-3 focus:outline-none"
               />
             </div>
             <div>
-              <label className="text-semibold">Blog Category:</label>
+              <label className="text-semibold dark:text-white">Blog Category:</label>
               <input
-                defaultValue={blog?.post?.category}
+                value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 type="text"
                 placeholder="/health/mental-health/adhd.."
-                className="w-full inline-block bg-gray-200 px-5 py-3 focus:outline-none"
+                className="w-full inline-block bg-gray-200 dark:bg-gray-700 dark:text-white px-5 py-3 focus:outline-none"
               />
             </div>
             <div>
-              <label className="text-semibold">Meta Description:</label>
+              <label className="text-semibold dark:text-white">Meta Description:</label>
               <textarea
                 cols={4}
                 rows={4}
-                defaultValue={blog?.post?.description}
+                value={metaDescription}
                 onChange={(e) => setMetaDescription(e.target.value)}
                 placeholder="Write Your Blog Meta Description"
-                className="w-full inline-block bg-gray-200 px-5 py-3 focus:outline-none"
+                className="w-full inline-block bg-gray-200 dark:bg-gray-700 dark:text-white px-5 py-3 focus:outline-none"
               />
             </div>
             <div>
-              <label className="text-semibold">Rating:</label>
+              <label className="text-semibold dark:text-white">Rating:</label>
               <input
-                defaultValue={blog?.post?.rating}
+                value={rating}
                 onChange={(e) => setRating(e.target.value)}
                 type="number"
-                className="w-full inline-block bg-gray-200 px-5 py-3 focus:outline-none"
+                min="0"
+                max="5"
+                step="0.1"
+                className="w-full inline-block bg-gray-200 dark:bg-gray-700 dark:text-white px-5 py-3 focus:outline-none"
               />
             </div>
             <div>
-              <label className="text-semibold">Author:</label>
+              <label className="text-semibold dark:text-white">Author:</label>
               <input
                 disabled
                 value={user.username}
                 type="text"
-                placeholder={`{user.username} (not editable)`}
-                className="w-full inline-block bg-gray-200 px-5 py-3 focus:outline-none"
+                className="w-full inline-block bg-gray-200 dark:bg-gray-700 dark:text-white px-5 py-3 focus:outline-none"
               />
             </div>
           </div>
         </div>
         {message && <p className="text-red-600">{message}</p>}
-        <button disabled={isLoading} type="submit" className="w-full mt-5 bg-pink-500 hover:bg-pink-400 font-medium py-3 rounded-md">Update Blog Text</button>
+        <button 
+          disabled={isLoading} 
+          type="submit" 
+          className="w-full mt-5 bg-pink-500 hover:bg-pink-400 font-medium py-3 rounded-md text-white"
+        >
+          {isLoading ? "Updating..." : "Update Blog Post"}
+        </button>
       </form>
     </div>
   );

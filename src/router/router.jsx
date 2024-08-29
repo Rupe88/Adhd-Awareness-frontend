@@ -1,5 +1,6 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
+import ADHDTest from "../components/ADHDTest";
 const Home = React.lazy(() => import("../pages/home/Home"));
 const About = React.lazy(() => import("../pages/about/About"));
 const PrivacyPolicy = React.lazy(() => import("../pages/privacy-policy/PrivacyPolicy"));
@@ -12,7 +13,6 @@ const AddPost = React.lazy(() => import("../pages/admin/post/AddPost"));
 const ManagePost = React.lazy(() => import("../pages/admin/post/ManagePost"));
 const ManageUser = React.lazy(() => import("../pages/admin/user/ManageUser"));
 const UpdatePost = React.lazy(() => import("../pages/admin/post/UpdatePost"));
-const Books = React.lazy(() => import("../pages/contact-us/Books"));
 const App = React.lazy(() => import("../App"));
 const PrivateRouter=React.lazy(()=>import("../router/PrivateRouter"))
 const router = createBrowserRouter([
@@ -34,8 +34,8 @@ const router = createBrowserRouter([
                 element:<PrivacyPolicy/>
             },
             {
-                path:"/books",
-                element:<Books/>
+                path:"/adhd-test",
+                element:<ADHDTest/>
             },
             {
                 path:"/blog/:id",

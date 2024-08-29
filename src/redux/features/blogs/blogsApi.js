@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const blogApi = createApi({
   reducerPath: "blogsApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://adhd-awareness-backend.onrender.com/api/",
+    baseUrl: "http://localhost:8000/api/",
     credentials: "include",
   }),
   tagTypes: ['Blog'],
@@ -54,5 +54,6 @@ export const {
   useFetchRelatedBlogsQuery,
   usePostBlogMutation,
   useUpdateBlogMutation,
-  useDeleteBlogMutation
+  useDeleteBlogMutation,
+  
 } = blogApi;

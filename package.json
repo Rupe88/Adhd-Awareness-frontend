@@ -13,6 +13,7 @@
     "@editorjs/editorjs": "^2.30.5",
     "@editorjs/header": "^2.8.7",
     "@editorjs/list": "^1.10.0",
+    "@editorjs/paragraph": "^2.11.6",
     "@reduxjs/toolkit": "^2.2.7",
     "editorjs-html": "^3.4.3",
     "framer-motion": "^11.3.28",

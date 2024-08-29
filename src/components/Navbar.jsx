@@ -59,7 +59,7 @@ const navList = [
   { name: "Home", path: "/" },
   { name: "About us", path: "/about-us" },
   { name: "Privacy Policy", path: "/privacy-policy" },
-  { name: "Books", path: "/books" },
+  { name: "ADHD Test", path: "/adhd-test" },
 ];
 
 const Navbar = () => {
