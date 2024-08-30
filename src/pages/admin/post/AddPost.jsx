@@ -12,7 +12,7 @@ const edjsParser = edjsHTML();
 const AddPost = () => {
   const editorRef = useRef(null);
   const [title, setTitle] = useState("");
-  const [coverImg, setCoverImg] = useState("");
+  const [coverImg, setCoverImg] = useState(null);
   const [metaDescription, setMetaDescription] = useState("");
   const [category, setCategory] = useState("");
   const [rating, setRating] = useState(0);

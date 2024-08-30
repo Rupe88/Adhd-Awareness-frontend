@@ -4,7 +4,10 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/f
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-100 dark:bg-gray-800 pt-16 pb-12">
+    <>
+<div>
+<hr className="border-t border-gray-300 dark:border-gray-600" />
+<footer className="bg-gray-100 dark:bg-gray-800 pt-16 pb-12">
       <div className="container mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* About section */}
@@ -22,7 +25,7 @@ const Footer = () => {
               <li><Link to="/" className="text-gray-600 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-400">Home</Link></li>
               <li><Link to="/about-us" className="text-gray-600 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-400">About Us</Link></li>
               <li><Link to="/privacy-policy" className="text-gray-600 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-400">Privacy Policy</Link></li>
-              <li><Link to="/books" className="text-gray-600 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-400">Books</Link></li>
+              <li><Link to="/adhd-test" className="text-gray-600 dark:text-gray-400 hover:text-pink-600 dark:hover:text-pink-400">ADHD Test</Link></li>
             </ul>
           </div>
 
@@ -79,6 +82,10 @@ const Footer = () => {
         </div>
       </div>
     </footer>
+</div>
+
+    </>
+
   );
 };
 
