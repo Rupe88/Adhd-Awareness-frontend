@@ -18,7 +18,7 @@ const AdminNavigation = () => {
   };
 
   return (
-    <div className="space-y-5 p-8 md:h-[calc(100vh-98px)] flex flex-col justify-between bg-white dark:bg-gray-800 text-black dark:text-white">
+    <div className="space-y-5 p-8 md:h-[calc(100vh-98px)] flex flex-col justify-between bg-white text-black dark:bg-gray-800 text-black dark:text-white">
       <div>
         {/* Header Part */}
         <div className="mb-5">

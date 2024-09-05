@@ -9,7 +9,7 @@ const AdminLayout = () => {
 
     }
   return (
-    <div className=" bg-white dark:bg-gray-800  flex flex-col md:flex-row gap-4 items-start justify-start">
+    <div className=" bg-white text-black dark:bg-gray-800  flex flex-col md:flex-row gap-4 items-start justify-start">
       <header className="lg:w-1/5 sm:2/5 w-full mt-8">
    <AdminNavigation/>
       </header>

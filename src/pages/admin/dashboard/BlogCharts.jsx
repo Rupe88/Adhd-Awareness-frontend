@@ -12,7 +12,7 @@ const formatData=(blogs)=>{
 const BlogCharts = ({blogs}) => {
     const data=formatData(blogs)
   return (
-    <div className="p-6 bg-pink-200 dark:text-gray-800 rounded-lg shadow-sm">
+    <div className="p-6 bg-pink-200 text-black dark:text-gray-800 rounded-lg shadow-sm">
         <h2 className="text-xl font-semibold mb-4">Blogs Chart</h2>
         <div className="h-80">
             <ResponsiveContainer width={"100%"} height={"100%"}>

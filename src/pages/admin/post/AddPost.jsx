@@ -84,7 +84,7 @@ const AddPost = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 md:p-8 p-2">
+    <div className="bg-white text-black dark:bg-gray-800 md:p-8 p-2">
       <h2 className="text-2xl font-semibold dark:text-white">Create A New Blog Post</h2>
       <form onSubmit={handleSubmit} className="space-y-5 pt-8">
         <div>

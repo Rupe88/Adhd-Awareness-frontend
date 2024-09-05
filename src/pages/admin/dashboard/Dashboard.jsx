@@ -25,16 +25,16 @@ const Dashboard = () => {
       {isLoading && <div>Loading...</div>}
       <div className="space-y-6">
         <div className="bg-gray-200 p-5">
-          <h1 className="dark:text-gray-800">Hi, <span className="text-pink-600">{user?.username}</span></h1>
+          <h1 className="dark:text-gray-800 text-black">Hi, <span className="text-pink-600">{user?.username}</span></h1>
           <p>Welcome to the Admin Dashboard</p>
-          <p className="dark:text-gray-800">
+          <p className="dark:text-gray-800 text-black">
             Here You Can Manage Your ADHD's Posts, Users and Other
             Administrative Tasks.
           </p>
         </div>
         
         {/* 4 cards grid */}
-        <div className="flex flex-col md:flex-row justify-center gap-8 pt-3 dark:text-gray-800">
+        <div className="flex flex-col md:flex-row justify-center gap-8 pt-3 text-black dark:text-gray-800">
           <div className="bg-pink-100 py-6 w-full rounded-sm space-y-1 flex flex-col items-center">
             <FiUsers className="size-8 text-pink-600" />
             <p>{users.length}</p>
