@@ -50,9 +50,9 @@ const ManageUser = () => {
 
   return (
     <div>
-      <section className="py-1 bg-blueGray-50 mx-auto mr-8">
+      <section className="py-1 dark:text-gray-300 dark:bg-gray-800 mx-auto mr-8">
         <div className="w-full mb-12 xl:mb-0">
-          <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+          <div className="relative flex flex-col min-w-0 break-words text-black dark:text-gray-300 w-full mb-6 shadow-lg rounded">
             <div className="rounded-t mb-0 px-4 py-3 border-0">
               <div className="flex flex-wrap items-center">
                 <div className="relative w-full px-4 max-w-full flex-grow flex-1">
@@ -65,11 +65,11 @@ const ManageUser = () => {
                     type="text"
                     placeholder="Search users..."
                     onChange={(e) => handleSearch(e.target.value)}
-                    className="border rounded px-2 py-1 mr-2"
+                    className="border rounded px-2 py-1 mr-2 dark:text-gray-800"
                   />
                   <select
                     onChange={(e) => handleRoleFilter(e.target.value)}
-                    className="border rounded px-2 py-1 mr-2"
+                    className="border rounded px-2 py-1 mr-2 dark:text-gray-800"
                   >
                     <option value="">All Roles</option>
                     <option value="user">User</option>
@@ -127,7 +127,7 @@ const ManageUser = () => {
                         <select
                           value={user.role}
                           onChange={(e) => handleRoleUpdate(user._id, e.target.value)}
-                          className="border rounded px-2 py-1"
+                          className="border rounded px-2 py-1 dark:text-gray-800"
                         >
                           <option value="user">User</option>
                           <option value="admin">Admin</option>

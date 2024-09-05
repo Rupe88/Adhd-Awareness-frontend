@@ -53,7 +53,7 @@ const ADHDTest = () => {
   };
 
   return (
-    <div className="min-h-screen pt-12 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-300">
+    <div className="min-h-screen pt-12 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-300 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg transition-colors duration-300">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-3xl font-bold">ADHD Screening Test</h2>

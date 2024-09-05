@@ -42,11 +42,11 @@ const SingleBlogCard = ({ blog }) => {
       </div>
       <div className="mt-6">
         <span className="text-lg font-medium text-pink-600 dark:text-pink-500">Category: </span>
-        <span>{category}</span>
+        <span className="dark:text-gray-200">{category}</span>
       </div>
       <div className="mt-2">
         <span className="text-lg font-medium text-pink-600 dark:text-pink-500">Rating: </span>
-        <span>{rating} (based on 1,000 reviews)</span>
+        <span className="dark:text-gray-200">{rating} (based on 1,000 reviews)</span>
       </div>
     </div>
   );

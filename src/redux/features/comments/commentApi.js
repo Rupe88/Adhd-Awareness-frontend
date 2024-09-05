@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const commentApi = createApi({
   reducerPath: "commentApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://adhd-awareness-backend.onrender.com/api/comment",
+    baseUrl: "http://localhost:8000/api/comment",
     credentials: "include",
   }),
 

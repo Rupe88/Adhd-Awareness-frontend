@@ -32,7 +32,7 @@ const Blogs = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="bg-white dark:bg-gray-900 text-gray-800 dark:text-white mx-auto container py-8">
+    <div className="bg-white dark:bg-gray-900 text-gray-800 dark:text-white w-full py-8">
       <div className="mb-8 mx-8">
         <SearchBlog
           search={search}

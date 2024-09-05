@@ -11,7 +11,7 @@ const SingleBlog = () => {
   console.log("Blog data:", blog);
 
   return (
-    <div className="text-primary container bg-white dark:bg-black">
+    <div className="text-primary bg-white dark:bg-black">
       <div>
         {isLoading && <div>Loading...</div>}
         {error && <div>Error: {error.message}</div>}
