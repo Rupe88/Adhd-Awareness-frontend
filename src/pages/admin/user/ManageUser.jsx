@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useGetUserQuery, useDeleteUserMutation, useUpdateUserRoleMutation } from "../../../redux/features/auth/authApi";
-// import { MdModeEdit } from "react-icons/md";
 
 const ManageUser = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -13,7 +12,6 @@ const ManageUser = () => {
 
   const handleSearch = (value) => setSearchTerm(value);
   const handleRoleFilter = (value) => setRoleFilter(value);
-  // const handleGmailToggle = () => setGmailOnly(!gmailOnly);
 
   const handleDelete = async (userId) => {
     if (window.confirm("Are you sure you want to delete this user?")) {
@@ -29,20 +27,23 @@ const ManageUser = () => {
   };
 
   const handleRoleUpdate = async (userId, newRole) => {
-    try {
-      await updateUserRole({ userId, role: newRole }).unwrap();
-      alert("User role updated successfully!");
-      refetch();
-    } catch (error) {
-      console.error("Failed to update user role:", error);
-      alert("Failed to update user role. Please try again.");
+    const confirmUpdate = window.confirm(`Are you sure you want to change the user's role to ${newRole}?`);
+    if (confirmUpdate) {
+      try {
+        await updateUserRole({ userId, role: newRole }).unwrap();
+        alert("User role updated successfully!");
+        refetch();
+      } catch (error) {
+        console.error("Failed to update user role:", error);
+        alert("Failed to update user role. Please try again.");
+      }
     }
   };
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
-  const filteredUsers = data?.users.filter(user => 
+  const filteredUsers = data?.users.filter(user =>
     user.email.toLowerCase().includes(searchTerm.toLowerCase()) &&
     (roleFilter === "" || user.role === roleFilter) &&
     (!gmailOnly || user.email.toLowerCase().endsWith('@gmail.com'))
@@ -74,17 +75,7 @@ const ManageUser = () => {
                     <option value="">All Roles</option>
                     <option value="user">User</option>
                     <option value="admin">Admin</option>
-                    {/* Add other roles as needed */}
                   </select>
-                  {/* <label className="inline-flex items-center">
-                    <input
-                      type="checkbox"
-                      checked={gmailOnly}
-                      onChange={handleGmailToggle}
-                      className="form-checkbox h-5 w-5 text-gray-600"
-                    />
-                    <span className="ml-2 text-gray-700">Gmail Only</span>
-                  </label> */}
                 </div>
               </div>
             </div>
@@ -131,7 +122,6 @@ const ManageUser = () => {
                         >
                           <option value="user">User</option>
                           <option value="admin">Admin</option>
-                          {/* Add other roles as needed */}
                         </select>
                       </td>
                       <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
