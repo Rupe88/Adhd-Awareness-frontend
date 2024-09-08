@@ -44,7 +44,14 @@ export const blogApi = createApi({
         credentials: "include"
       }),
       invalidatesTags: (result, error, id) => [{ type: "Blog", id }]
-    })
+    }),
+    subscribeToBlog: builder.mutation({
+      query: (email) => ({
+        url: '/blog/subscribe',
+        method: 'POST',
+        body: { email },
+      }),
+    }),
   }),
 });
 

@@ -1,8 +1,24 @@
 
 import { Link } from 'react-router-dom';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
-
+import { useState } from 'react';
+import axios from "axios"
 const Footer = () => {
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post('http://localhost:8000/api/notifications/subscribe', { email });
+      alert('Subscribed successfully!');
+      setEmail('');
+    } catch (error) {
+      console.error('Error subscribing:', error);
+      alert('Subscription failed: ' + (error.response?.data?.message || error.message));
+    }
+  }
+
+
   return (
     <>
 <div>
@@ -40,25 +56,26 @@ const Footer = () => {
 
           {/* Newsletter Signup */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-4">Stay Updated</h3>
-            <p className="text-gray-600 dark:text-gray-400 mb-4">Subscribe to our newsletter for the latest ADHD news and resources.</p>
-            <form className="flex">
-              <input 
-                type="email" 
-                
-                placeholder="Your email" 
-                className="flex-grow px-2 py-2 rounded-l-md focus:outline-none focus:ring-2 focus:ring-pink-600 dark:bg-gray-700 dark:text-white"
-              />
-              <button 
-                type="submit" 
-                onClick={()=>alert("we will make this Feature soon😁")}
-                className="bg-pink-600 text-white px-4 py-2 rounded-r-md hover:bg-pink-700 transition duration-300"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
-        </div>
+                <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-4">Stay Updated</h3>
+                <p className="text-gray-600 dark:text-gray-400 mb-4">Subscribe to our newsletter for the latest ADHD news and resources.</p>
+                <form onSubmit={handleSubmit} className="flex flex-col space-y-2">
+                  <input 
+                    type="email" 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Your email" 
+                    className="flex-grow px-2 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-600 dark:bg-gray-700 dark:text-white"
+                    required
+                  />
+                  <button 
+                    type="submit" 
+                    className="bg-pink-600 text-white px-4 py-2 rounded-md hover:bg-pink-700 transition duration-300"
+                  >
+                    Subscribe
+                  </button>
+                </form>
+              </div>
+            </div>
 
         {/* Social Media Icons */}
         <div className="mt-10 flex justify-center space-x-6">
